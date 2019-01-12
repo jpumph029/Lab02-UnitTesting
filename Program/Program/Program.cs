@@ -54,37 +54,37 @@ namespace Program
             switch (menuInput)
             {
                 case 0:
+                    // View Balance 
                     ViewBalance(Balance);
                     Console.ReadKey();
                     Console.Clear();
-                    // View Balance 
                     break;
                 case 1:
+                    //Withdraw Money
                     Console.Write("Type an amount of money to withdraw: $");
                     string userInput = Console.ReadLine();
                     double sysInput = Convert.ToDouble(userInput);
                     Balance = WithdrawBalance(Balance, sysInput);
                     Console.ReadKey();
-                    Console.Clear();
-                    
-                    //Withdraw Money
+                    Console.Clear();                                       
                     break;
                 case 2:
+                    // Deposit Money
                     Console.Write("Type an amount of money to deposit: $");
                     userInput = Console.ReadLine();
                     sysInput = Convert.ToDouble(userInput);
                     Balance = DepositToBalance(Balance, sysInput);
                     Console.ReadKey();
                     Console.Clear();
-                    // Deposit Money
                     break;
                 case 3:
+                    // Exit 
                     ExitProgram();
                     Console.ReadKey();
                     Console.Clear();
-                    // Exit 
                     break;
                 default:
+                    // If user inputs 4 or more on the menu
                     Console.Write("Sorry something went wrong. Try again.\nPress any key to continue . . .");
                     Console.ReadKey();
                     Console.Clear();
@@ -145,6 +145,10 @@ namespace Program
 
             return Balance;
         }
+
+        /// <summary>
+        /// Exits the program
+        /// </summary>
         public static void ExitProgram()
         {
             Environment.Exit(0);
