@@ -24,5 +24,11 @@ namespace TDD
             double sysInput = -100;
             Assert.Equal(Program.Program.Balance, Program.Program.WithdrawBalance(Program.Program.Balance, sysInput));
         }
+        [Fact]
+        public void CanDeposit()
+        {
+            double sysInput = 100;
+            Assert.Equal(300, Program.Program.DepositToBalance(Program.Program.Balance, sysInput));
+        }
     }
 }

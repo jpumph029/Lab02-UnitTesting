@@ -76,13 +76,13 @@ namespace Program
                     Balance = DepositToBalance(Balance, sysInput);
                     Console.ReadKey();
                     Console.Clear();
-                    // Deposit Money Method
+                    // Deposit Money
                     break;
                 case 3:
                     ExitProgram();
                     Console.ReadKey();
                     Console.Clear();
-                    // Exit Method
+                    // Exit 
                     break;
                 default:
                     Console.Write("Sorry something went wrong. Try again.\nPress any key to continue . . .");
@@ -127,7 +127,7 @@ namespace Program
             return Balance;
         }
         /// <summary>
-        /// 
+        /// Alows the user to Deposit money to their balance
         /// </summary>
         /// <param name="Balance"></param>
         /// <returns></returns>
