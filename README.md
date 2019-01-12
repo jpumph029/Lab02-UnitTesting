@@ -13,3 +13,9 @@ Keep asking the user to choose a transaction until they choose to ‘exit’ the
 To run you need Visual Studio 2017, navigate to /Program/Program/Program.cs to the file Program.cs then press Ctrl+F5 to compile and run. 
 
 ## ScreenShots
+Main
+![](/Assets/Main.png)
+Withdraw
+![](/Assets/Withdraw.png)
+Deposit
+![](/Assets/Deposit.png)
