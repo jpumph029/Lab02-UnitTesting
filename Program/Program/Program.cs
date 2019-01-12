@@ -2,7 +2,7 @@
 
 namespace Program
 {
-    class Program
+    public class Program
     {
         public static double Balance = 200;
 
@@ -45,53 +45,71 @@ namespace Program
             }
             
         }
+        /// <summary>
+        /// Menu Option Switch for the menu
+        /// </summary>
+        /// <param name="menuInput"></param>
         public static void MenuOptions(int menuInput)
         {
             switch (menuInput)
             {
                 case 0:
+                    // View Balance 
                     ViewBalance(Balance);
                     Console.ReadKey();
                     Console.Clear();
-                    // View Balance 
                     break;
                 case 1:
-                   Balance = WithdrawBalance(Balance);
-                    Console.ReadKey();
-                    Console.Clear();
-                    
                     //Withdraw Money
+                    Console.Write("Type an amount of money to withdraw: $");
+                    string userInput = Console.ReadLine();
+                    double sysInput = Convert.ToDouble(userInput);
+                    Balance = WithdrawBalance(Balance, sysInput);
+                    Console.ReadKey();
+                    Console.Clear();                                       
                     break;
                 case 2:
-                    Balance = DepositToBalance(Balance);
+                    // Deposit Money
+                    Console.Write("Type an amount of money to deposit: $");
+                    userInput = Console.ReadLine();
+                    sysInput = Convert.ToDouble(userInput);
+                    Balance = DepositToBalance(Balance, sysInput);
                     Console.ReadKey();
                     Console.Clear();
-                    // Deposit Money Method
                     break;
                 case 3:
+                    // Exit 
                     ExitProgram();
                     Console.ReadKey();
                     Console.Clear();
-                    // Exit Method
                     break;
                 default:
+                    // If user inputs 4 or more on the menu
                     Console.Write("Sorry something went wrong. Try again.\nPress any key to continue . . .");
                     Console.ReadKey();
                     Console.Clear();
                     break;
             }
         }
-
+        /// <summary>
+        /// Alows the user to view their balance
+        /// </summary>
+        /// <param name="Balance"></param>
+        /// <returns></returns>
         public static double ViewBalance(double Balance)
         {
             Console.WriteLine($"Your current balance is: ${Balance}\nPress any key to continue . . .");
             return Balance;
         }
-        public static double WithdrawBalance(double Balance)
+        /// <summary>
+        /// Allows the user to withdraw from their balance
+        /// </summary>
+        /// <param name="Balance"></param>
+        /// <param name="sysInput">The amount the user wants to withdraw</param>
+        /// <returns></returns>
+        public static double WithdrawBalance(double Balance, double sysInput)
         {
-            Console.Write("Type an amount of money to withdraw: $");
-            string userInput = Console.ReadLine();
-            double sysInput = Convert.ToDouble(userInput);
+
             if (sysInput > Balance)
             {
                 Console.WriteLine("Insignificant funds.\nPress any key to continue . . .");
@@ -108,11 +126,13 @@ namespace Program
             
             return Balance;
         }
-        public static double DepositToBalance(double Balance)
+        /// <summary>
+        /// Alows the user to Deposit money to their balance
+        /// </summary>
+        /// <param name="Balance"></param>
+        /// <returns></returns>
+        public static double DepositToBalance(double Balance, double sysInput)
         {
-            Console.Write("Type an amount of money to deposit: $");
-            string userInput = Console.ReadLine();
-            double sysInput = Convert.ToDouble(userInput);
              if (sysInput < 0)
             {
                 Console.WriteLine("Invalid.\nPress any key to continue . . .");
@@ -125,6 +145,10 @@ namespace Program
 
             return Balance;
         }
+
+        /// <summary>
+        /// Exits the program
+        /// </summary>
         public static void ExitProgram()
         {
             Environment.Exit(0);
